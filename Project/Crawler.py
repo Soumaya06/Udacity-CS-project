@@ -17,7 +17,18 @@ def get_all_links(page):
     :rtype : list of all links in a page
     :param page: html content of the page
     """
-    return page
+page= ''
+def get_all_links(page):
+    links = []
+    while True:
+        url =extract_link(page)
+        if url:
+            links.append(url)
+        else:
+            break
+    return links
+
+return page
 
 
 def get_page(url):
