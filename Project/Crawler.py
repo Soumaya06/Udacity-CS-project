@@ -1,12 +1,13 @@
 __author__ = 'Raphael'
 import urllib2
 def getLink(page):
-    """
-    Soumaya and Frank
-    function takes in a html  string and returns first link
-    :param page: html string
-    :return: first link
-    """
+    start_link= page.find ("<a href=")
+    start_quote= page.find ('"', start_link)
+    end_quote= page.find ('"', start_quote+1)
+    url= page [start_quote+1: end_qote]
+    page= [end_quote:]
+    return url
+    
     return page
 
 
@@ -47,4 +48,12 @@ def crawl_web(seed):
     :rtype : a a list of crawled pagest
     :param seed: the starting linkk for crawling
     """
-    return seed
+        to_crawl = [seed]
+        crawled = []
+        while to_crawl:
+            page = to_crawl.pop()
+            if page not in crawled:
+                to_crawl.union(self.get_all_links(self.get_page(page)))
+                crawled.append(page)
+
+        return crawled
