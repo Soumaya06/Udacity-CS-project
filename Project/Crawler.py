@@ -57,3 +57,23 @@ def crawl_web(seed):
                 crawled.append(page)
 
         return crawled
+
+def get_index():
+    """
+    it returns a dictionary with a keyword and a value which is a list of urls called index
+    """
+    index= dict()
+    index["udacity"]=["url1", "url2", "url3"]
+    return Index
+
+
+
+
+def look_up( index, keyword):
+    """
+    returns urls matching the keyword if the keuyword exists in the dictionary
+    """
+    if index.has[keyword]:
+        return index[keyword]
+    return []
+
